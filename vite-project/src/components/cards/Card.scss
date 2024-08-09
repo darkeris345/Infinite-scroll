@@ -1,0 +1,75 @@
+@import '../styles/variables';
+@import '../styles/mixin';
+
+.card {
+  position: relative;
+  margin: calc($gap / 2);
+  height: calc(100vh / 3.5);
+  display: flex;
+  border-radius: $border-radius;
+  box-shadow: 2px 2px 0 0 #d1d3d2;
+  overflow: hidden;
+  @include card-responsive();
+}
+
+.media {
+  @include shared-card();
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.content {
+  @include shared-card();
+  color: $color-white;
+  margin: 0;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  background-color: rgba(0, 0, 0, 0.7);
+  justify-content: center;
+
+  strong {
+    text-overflow: ellipsis;
+    display: inline-block;
+    white-space: nowrap;
+    text-align: center;
+    width: 96%;
+  }
+
+  hr {
+    display: block;
+    position: relative;
+    padding: 0;
+    margin: calc($gap / 6) auto;
+    height: 2px;
+    width: 45%;
+    line-height: 0;
+    border: none;
+    border-top: 1px solid $color-white;
+    border-bottom: 1px solid $color-white;
+  }
+}
+
+.star {
+  position: absolute;
+  right: -32px;
+  top: -32px;
+  background-color: $color-grey-dark;
+  transform: rotate(45deg);
+  display: flex;
+  width: calc($gap * 2);
+  height: calc($gap * 2);
+  align-items: center;
+  justify-content: flex-end;
+  flex-direction: column;
+
+  i {
+    font-style: normal;
+    display: inline-block;
+    color: $color-white;
+    font-size: $font-size-large;
+    line-height: 1.4;
+
+  }
+}

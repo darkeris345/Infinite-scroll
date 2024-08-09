@@ -1,0 +1,12 @@
+{
+    "apiUrl": "https://api.flickr.com/services/rest/",
+    "params": {
+      "method": "flickr.photos.search",
+      "api_key": "49583cdb4d7226ffe0ac52ba16dedb7e",
+      "tags": "8-bit",
+      "format": "json",
+      "nojsoncallback": 1,
+      "per_page": 10
+    },
+    "imageUrl": "https://live.staticflickr.com/"
+  }
