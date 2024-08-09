@@ -34,6 +34,7 @@
     display: inline-block;
     white-space: nowrap;
     text-align: center;
+    overflow: hidden;
     width: 96%;
   }
 
@@ -43,7 +44,7 @@
     padding: 0;
     margin: calc($gap / 6) auto;
     height: 2px;
-    width: 45%;
+    width: 25%;
     line-height: 0;
     border: none;
     border-top: 1px solid $color-white;
@@ -70,6 +71,5 @@
     color: $color-white;
     font-size: $font-size-large;
     line-height: 1.4;
-
   }
 }

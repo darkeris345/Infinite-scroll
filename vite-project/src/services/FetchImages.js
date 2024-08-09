@@ -1,11 +1,9 @@
 import config from '../config.json';
 
 export const fetchImages = async (page) => {
-
   const queryParams = new URLSearchParams({
     ...config.params,
-    page: page,
-    per_page: 10
+    page: page
   });
 
   const response = await fetch(`${config.apiUrl}?${queryParams}`);

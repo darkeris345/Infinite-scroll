@@ -3,7 +3,7 @@
 .button {
   margin-top: calc($gap / 2);
   color: $color-white;
-  font-size: $font-size-lg;
+  font-size: $font-size-large;
   background: none;
   padding: calc($gap / 6) calc($gap / 2);
   border-radius: calc($border-radius * 5);
@@ -12,14 +12,10 @@
 
   &:hover {
     box-shadow: inset 0 0 0 1px $color-grey-dark;
-    color: $color-grey-dark;
-    background-color: $color-white;
-    border: 1px solid $color-grey-dark;
-    transition: 0.5s;
-    transform: scale(1.1);
   }
 }
 
 .active {
+  color: $color-grey-dark;
   background-color: $color-grey;
 }

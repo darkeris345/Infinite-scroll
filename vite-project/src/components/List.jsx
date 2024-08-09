@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
-import Card from './cards/Card';
+import Card from './cards/Card'; 
 import { fetchImages } from '../services/FetchImages';
 
-const List = ({ likedItems, setLikedItems }) => {
+function List({ likedItems, setLikedItems }) {
   const [images, setImages] = useState([]);
   const [page, setPage] = useState(1);
   const [loading, setLoading] = useState(false);
@@ -18,7 +18,7 @@ const List = ({ likedItems, setLikedItems }) => {
   }, [page]);
 
   const handleScroll = () => {
-    if (window.innerHeight + document.documentElement.scrollTop >= document.documentElement.offsetHeight - 200) {
+    if (window.innerHeight + document.documentElement.scrollTop >= document.documentElement.offsetHeight - 50) {
       setPage((prev) => prev + 1);
     }
   };
@@ -29,23 +29,24 @@ const List = ({ likedItems, setLikedItems }) => {
   }, []);
 
   return (
-    <ul className="imageGrid">
-      {images.map((image) => (
-        <Card
-          key={image.id}
-          id={image.id}
-          title={image.title}
-          secret={image.secret}
-          server={image.server}
-          description={image.description}
-          ownername={image.ownername}
-          likedItems={likedItems}
-          setLikedItems={setLikedItems}
-        />
-      ))}
+    <div>
+      <ul className="imageGrid">
+        {images.map((image) => (
+          <Card
+            key={image.id}
+            id={image.id}
+            title={image.title}
+            secret={image.secret}
+            server={image.server}
+            ownername={image.ownername}
+            likedItems={likedItems}
+            setLikedItems={setLikedItems}
+          />
+        ))}
+      </ul>
       {loading && <p>Loading...</p>}
-    </ul>
+    </div>
   );
-};
+}
 
 export default List;
