@@ -1,3 +1,4 @@
+
 import config from '../config.json';
 
 export const fetchImages = async (page) => {
@@ -7,6 +8,8 @@ export const fetchImages = async (page) => {
   });
 
   const response = await fetch(`${config.apiUrl}?${queryParams}`);
+  await new Promise(resolve => setTimeout(resolve, 1000));
   const data = await response.json();
+  
   return data.photos.photo;
 };

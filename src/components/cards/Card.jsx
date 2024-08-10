@@ -5,10 +5,12 @@ import API from '../../config.json';
 
 const { imageUrl } = API;
 
-function Card({ id, title, secret, server, ownername, setLikedItems, likedItems }) {
+const Card = ({ id, title, secret, server, ownername, setLikedItems, likedItems }) => {
+
   const [isInfoShown, setIsInfoShown] = useState(false);
   const [isLoaded, setIsLoaded] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
+
   const imgSrc = `${imageUrl}${server}/${id}_${secret}.jpg`;
   const isLiked = likedItems.includes(id);
   const imgRef = useRef();
@@ -21,8 +23,9 @@ function Card({ id, title, secret, server, ownername, setLikedItems, likedItems 
           observer.disconnect();
         }
       },
-      { threshold: 0.1 } // Adjust the threshold as needed
+      { threshold: 0.9 }
     );
+
     if (imgRef.current) {
       observer.observe(imgRef.current);
     }

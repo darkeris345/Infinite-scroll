@@ -13,8 +13,7 @@ function App() {
   }, [likedItems]);
 
   return (
-    <div className="app">
-      <h1>Vinted Task</h1>
+    <div className="infApp">
       <List likedItems={likedItems} setLikedItems={setLikedItems} />
     </div>
   );

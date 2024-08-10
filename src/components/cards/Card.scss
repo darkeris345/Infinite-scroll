@@ -4,11 +4,12 @@
 .card {
   position: relative;
   margin: calc($gap / 2);
-  height: calc(100vh / 3.5);
+  height: calc(100vh / 3);
   display: flex;
   border-radius: $border-radius;
   box-shadow: 2px 2px 0 0 #d1d3d2;
   overflow: hidden;
+
   @include card-responsive();
 }
 
@@ -28,28 +29,6 @@
   flex-direction: column;
   background-color: rgba(0, 0, 0, 0.7);
   justify-content: center;
-
-  strong {
-    text-overflow: ellipsis;
-    display: inline-block;
-    white-space: nowrap;
-    text-align: center;
-    overflow: hidden;
-    width: 96%;
-  }
-
-  hr {
-    display: block;
-    position: relative;
-    padding: 0;
-    margin: calc($gap / 6) auto;
-    height: 2px;
-    width: 25%;
-    line-height: 0;
-    border: none;
-    border-top: 1px solid $color-white;
-    border-bottom: 1px solid $color-white;
-  }
 }
 
 .star {
@@ -71,5 +50,33 @@
     color: $color-white;
     font-size: $font-size-large;
     line-height: 1.4;
+  }
+}
+
+@mixin shared-card {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+}
+
+@mixin card-responsive {
+  @media screen and (max-width: 576px) {
+    height: calc(100vh / 3.5); // Adjusted height for smaller screens
+    margin: calc($gap / 4);
+
+  }
+
+  @media screen and (min-width: 576px) {
+    margin: calc($gap / 3);
+    width: calc(50% - $gap / 1.5);
+  }
+
+  @media only screen and (min-width: 768px) {
+    height: calc(100vh / 4);
+    width: calc(33.3333% - $gap);
+  }
+
+  @media only screen and (min-width: 1140px) {
+    width: calc(25% - $gap);
   }
 }

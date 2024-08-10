@@ -2,7 +2,8 @@ import { useState, useEffect } from 'react';
 import Card from './cards/Card'; 
 import { fetchImages } from '../services/FetchImages';
 
-function List({ likedItems, setLikedItems }) {
+const List = ({ likedItems, setLikedItems }) => {
+
   const [images, setImages] = useState([]);
   const [page, setPage] = useState(1);
   const [loading, setLoading] = useState(false);
@@ -18,7 +19,7 @@ function List({ likedItems, setLikedItems }) {
   }, [page]);
 
   const handleScroll = () => {
-    if (window.innerHeight + document.documentElement.scrollTop >= document.documentElement.offsetHeight - 50) {
+    if (window.innerHeight + document.documentElement.scrollTop >= document.documentElement.offsetHeight - 250) {
       setPage((prev) => prev + 1);
     }
   };
