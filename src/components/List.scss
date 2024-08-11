@@ -3,23 +3,25 @@
 .imageGrid {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: space-evenly;
     padding: 0;
     margin: 0;
-    list-style: none;
+
 
     li {
-        
+
         @media screen and (max-width: 567px) {
             width: 100%;
         }
 
         @media only screen and (min-width: 568px) {
-            width: 33.3333%;
+            width: 33%;
+
         }
 
         @media only screen and (min-width: 1140px) {
             width: 25%;
+
         }
 
         @media only screen and (min-width: 1440px) {
@@ -36,5 +38,5 @@
     font-size: $font-size-large;
     color: $color-grey-dark;
     font-weight: bold;
-    
+
 }

@@ -3,7 +3,7 @@
 .imageCard {
   position: relative;
   margin: calc($gap / 2);
-  height: calc(100vh / 3);
+  height: calc(100vh / 4);
   display: flex;
   border-radius: $border-radius;
   box-shadow: 2px 2px 0 0 #d1d3d2;
@@ -17,6 +17,19 @@
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
+}
+
+.like {
+  position: absolute;
+  p {
+    margin: 0;
+    padding: 1rem;
+    font-size: 36px;
+    color: $liked-color;
+    font-weight: bold;
+
+
+  }
 }
 
 .text {
@@ -47,9 +60,4 @@
     margin: $gap;
   }
 
-
-  p {
-    font-size: $font-size-large;
-    margin: 0;
-  }
 }

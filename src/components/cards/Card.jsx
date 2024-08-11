@@ -10,7 +10,7 @@ const Card = ({
   title,
   secret,
   server,
-  ownername,
+  owner,
   setLikedItems,
   likedItems,
 }) => {
@@ -18,7 +18,7 @@ const Card = ({
   const [isLoaded, setIsLoaded] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
 
-  const imageSource = `${imageUrl}${server}/${id}_${secret}.jpg`;
+  const imageSource = `${imageUrl}${server}/${id}_${secret}.png`;
   const isLiked = likedItems.includes(id);
   const imgRef = useRef();
 
@@ -63,17 +63,18 @@ const Card = ({
         }}
         onLoad={() => setIsLoaded(true)}
       />
+      <div className="like">{isLiked ? <p>&#10084;</p> : ""}</div>
       {isInfoShown && (
-        <section className="text">
+        <div className="text">
           <h1 title={title}>{title}</h1>
           <hr />
-          <p>{ownername}</p>
+          <p>{owner}</p>
           <Button
             handleLike={handleLike}
             label={isLiked ? "Unlike" : "Like"}
             isActive={isLiked}
           />
-        </section>
+        </div>
       )}
     </li>
   );

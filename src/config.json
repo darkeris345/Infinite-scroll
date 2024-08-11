@@ -3,10 +3,12 @@
     "params": {
       "method": "flickr.photos.search",
       "api_key": "49583cdb4d7226ffe0ac52ba16dedb7e",
-      "tags": "landscape",
+      "tags": "8-bit",
       "format": "json",
       "nojsoncallback": 1,
-      "per_page": 8           
+      "per_page": 100,
+      "extras": "owner_name",
+      "media": "photos"
     },
     "imageUrl": "https://live.staticflickr.com/"
   }

@@ -10,10 +10,14 @@ const List = ({ likedItems, setLikedItems }) => {
 
   useEffect(() => {
     const loadImages = async () => {
-      setLoading(true);
-      const newImages = await fetchImages(page);
-      setImages((prev) => [...prev, ...newImages]);
-      setLoading(false);
+      try {
+        setLoading(true);
+        const newImages = await fetchImages(page);
+        setImages((prev) => [...prev, ...newImages]);
+        setLoading(false);
+      } catch (error) {
+        console.log(error);
+      }
     };
     loadImages();
   }, [page]);
@@ -40,9 +44,9 @@ const List = ({ likedItems, setLikedItems }) => {
             key={image.id}
             id={image.id}
             title={image.title}
+            owner={image.ownername}
             secret={image.secret}
             server={image.server}
-            ownername={image.ownername}
             likedItems={likedItems}
             setLikedItems={setLikedItems}
           />
