@@ -1,17 +1,24 @@
-import React, { useState, useRef, useEffect } from 'react';
-import './Card.scss';
-import Button from '../buttons/Button';
-import API from '../../config.json';
+import { useState, useRef, useEffect } from "react";
+import "./Card.scss";
+import Button from "../buttons/Button";
+import API from "../../config.json";
 
 const { imageUrl } = API;
 
-const Card = ({ id, title, secret, server, ownername, setLikedItems, likedItems }) => {
-
+const Card = ({
+  id,
+  title,
+  secret,
+  server,
+  ownername,
+  setLikedItems,
+  likedItems,
+}) => {
   const [isInfoShown, setIsInfoShown] = useState(false);
   const [isLoaded, setIsLoaded] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
 
-  const imgSrc = `${imageUrl}${server}/${id}_${secret}.jpg`;
+  const imageSource = `${imageUrl}${server}/${id}_${secret}.jpg`;
   const isLiked = likedItems.includes(id);
   const imgRef = useRef();
 
@@ -23,7 +30,7 @@ const Card = ({ id, title, secret, server, ownername, setLikedItems, likedItems 
           observer.disconnect();
         }
       },
-      { threshold: 0.9 }
+      { threshold: 0.5 }
     );
 
     if (imgRef.current) {
@@ -44,35 +51,32 @@ const Card = ({ id, title, secret, server, ownername, setLikedItems, likedItems 
 
   return (
     <li
-      className="card"
+      className="imageCard"
       onMouseEnter={() => setIsInfoShown(true)}
       onMouseLeave={() => setIsInfoShown(false)}
     >
       <div
         className="media"
         ref={imgRef}
-        style={{ backgroundImage: isVisible ? `url(${imgSrc})` : 'none' }}
+        style={{
+          backgroundImage: isVisible ? `url(${imageSource})` : "none",
+        }}
         onLoad={() => setIsLoaded(true)}
       />
-      {isLiked && (
-        <div className="star">
-          <i>&#10084;</i>
-        </div>
-      )}
       {isInfoShown && (
-        <section className="content">
-          <strong title={title}>{title}</strong>
+        <section className="text">
+          <h1 title={title}>{title}</h1>
           <hr />
-          <em>{ownername}</em>
+          <p>{ownername}</p>
           <Button
             handleLike={handleLike}
-            label={isLiked ? 'Dislike' : 'Like'}
+            label={isLiked ? "Unlike" : "Like"}
             isActive={isLiked}
           />
         </section>
       )}
     </li>
   );
-}
+};
 
 export default Card;

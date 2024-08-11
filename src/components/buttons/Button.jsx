@@ -1,14 +1,13 @@
-import './Button.scss';
+import "./Button.scss";
 
-function Button({ handleLike, label, isActive }) {
+const Button = ({ handleLike, label, isActive }) => {
+  const btnClass = isActive ? "button active" : "button";
 
-  const btnClass = isActive ? 'button active' : 'button';
-  
   return (
     <button className={btnClass} onClick={handleLike}>
       {label}
     </button>
   );
-}
+};
 
 export default Button;

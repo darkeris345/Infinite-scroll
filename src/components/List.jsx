@@ -1,9 +1,9 @@
-import { useState, useEffect } from 'react';
-import Card from './cards/Card'; 
-import { fetchImages } from '../services/FetchImages';
+import { useState, useEffect } from "react";
+import Card from "./cards/Card";
+import { fetchImages } from "../services/FetchImages";
+import "./List.scss";
 
 const List = ({ likedItems, setLikedItems }) => {
-
   const [images, setImages] = useState([]);
   const [page, setPage] = useState(1);
   const [loading, setLoading] = useState(false);
@@ -19,14 +19,17 @@ const List = ({ likedItems, setLikedItems }) => {
   }, [page]);
 
   const handleScroll = () => {
-    if (window.innerHeight + document.documentElement.scrollTop >= document.documentElement.offsetHeight - 250) {
+    if (
+      window.innerHeight + document.documentElement.scrollTop >=
+      document.documentElement.offsetHeight - 250
+    ) {
       setPage((prev) => prev + 1);
     }
   };
 
   useEffect(() => {
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   return (
@@ -45,9 +48,9 @@ const List = ({ likedItems, setLikedItems }) => {
           />
         ))}
       </ul>
-      {loading && <p>Loading...</p>}
+      {loading && <p className="loading">Loading...</p>}
     </div>
   );
-}
+};
 
 export default List;
