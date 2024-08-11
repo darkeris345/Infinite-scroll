@@ -1,6 +1,6 @@
-#Infinite Scroll App
+# Infinite Scroll App
 
-##How to run the app
+## How to run the app
 
 1. Clone the repository
 2. Open the terminal and navigate to the directory
