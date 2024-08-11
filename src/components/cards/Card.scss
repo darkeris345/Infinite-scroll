@@ -27,8 +27,6 @@
     font-size: 36px;
     color: $liked-color;
     font-weight: bold;
-
-
   }
 }
 
@@ -58,6 +56,14 @@
     width: 60%;
     border: 0.5px solid $color-white;
     margin: $gap;
+  }
+
+  p {
+    width: 80%;
+    text-align: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
 
 }
