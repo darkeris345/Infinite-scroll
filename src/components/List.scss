@@ -10,6 +10,8 @@
 
     li {
 
+        margin: $gap;
+
         @media screen and (max-width: 567px) {
             width: 100%;
         }
@@ -28,7 +30,6 @@
             width: 20%;
         }
 
-        margin: $gap;
     }
 }
 
